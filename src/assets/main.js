@@ -16,15 +16,36 @@ function guess() {
 //Check user input against answer and display results
     if (getResults(input.value)){
       setMessage('You Win! :)');
+      showAnswer(true);
+      showReplay();
     }
     else if (attempt.value >= 10) {
         setMessage('You Lose! :(');
+        showAnswer(false);
+        showReplay();
     }
     else {
       setMessage('Incorrect, try again.');
 
     }
 
+}
+
+//function shows the answer and colors based on if the player won or lost
+function showAnswer(success){
+    let code = document.getElementById('code');
+    if(success) {
+        code.className += " success";
+    } else {
+        code.className += " failure";
+    }
+    code.innerHTML = answer.value;
+}
+
+//function hides the guessing-div and shows the replay-div to allow replay
+function showReplay(){
+    document.getElementById('guessing-div').style.display = "none";
+    document.getElementById('replay-div').style.display = "block";
 }
 
 //implement new functions here
