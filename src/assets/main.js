@@ -13,17 +13,32 @@ function guess() {
     }
     attempt.value++;
 
-    if (getResults){
+//Check user input against answer and display results
+    if (getResults(input.value)){
       setMessage('You Win! :)');
     }
-    else if (!getResults)||(attempt.value>=10) {
+    else if (attempt.value >= 10) {
         setMessage('You Lose! :(');
     }
-    else if (!getResults) {
+    else {
       setMessage('Incorrect, try again.');
 
     }
-     
+
+
+
+      //Check user input against answer and display results
+      if(getResults(input.value)) {
+          setMessage('You Win! :)');
+          showAnswer(true);
+          showReplay();
+      } else if(attempt.value >= 10) {
+          setMessage('You Lose! :(');
+          showAnswer(false);
+          showReplay();
+      } else {
+          setMessage('Incorrect, try again.');
+      }
 
 }
 
