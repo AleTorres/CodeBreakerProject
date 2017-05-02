@@ -8,7 +8,7 @@ function guess() {
         setHiddenFields();
     }
 
-    if
+    
 }
 
 //implement new functions here
